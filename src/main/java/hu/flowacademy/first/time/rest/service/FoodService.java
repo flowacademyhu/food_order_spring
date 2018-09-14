@@ -52,6 +52,7 @@ public class FoodService {
         food.setName(foodDTO.getName());
         food.setPrice(foodDTO.getPrice());
         food.setDescription(foodDTO.getDescription());
+        food.setFoodType(foodDTO.getType());
         return food;
     }
 
@@ -64,6 +65,7 @@ public class FoodService {
         foodDto.setName(food.getName());
         foodDto.setDescription(food.getDescription());
         foodDto.setPrice(food.getPrice());
+        foodDto.setType(food.getFoodType());
         return foodDto;
     }
 

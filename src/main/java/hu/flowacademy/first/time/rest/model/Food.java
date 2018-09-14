@@ -1,5 +1,7 @@
 package hu.flowacademy.first.time.rest.model;
 
+import hu.flowacademy.first.time.rest.service.dto.FoodType;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,10 @@ public class Food {
 
     @Column
     private String description;
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    private FoodType foodType;
 
     public Long getId() {
         return id;
@@ -49,5 +55,13 @@ public class Food {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public FoodType getFoodType() {
+        return foodType;
+    }
+
+    public void setFoodType(FoodType foodType) {
+        this.foodType = foodType;
     }
 }

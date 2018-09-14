@@ -10,6 +10,8 @@ public class FoodDTO {
 
     private String description;
 
+    private FoodType type;
+
     public Long getId() {
         return id;
     }
@@ -40,5 +42,13 @@ public class FoodDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public FoodType getType() {
+        return type;
+    }
+
+    public void setType(FoodType type) {
+        this.type = type;
     }
 }
