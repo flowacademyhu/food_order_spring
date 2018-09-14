@@ -51,6 +51,20 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.leandreck.endpoints</groupId>
+			<artifactId>parent</artifactId>
+			<version>0.4.0</version>
+			<type>pom</type>
+		</dependency>
+
+        <dependency>
+            <groupId>org.leandreck.endpoints</groupId>
+            <artifactId>annotations</artifactId>
+            <version>0.4.0</version>
+            <scope>provided</scope>
+        </dependency>
+
 	</dependencies>
 
 	<build>
@@ -59,6 +73,19 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.leandreck.endpoints</groupId>
+							<artifactId>annotations</artifactId>
+							<version>0.4.0</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
