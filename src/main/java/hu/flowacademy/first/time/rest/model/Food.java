@@ -35,6 +35,10 @@ public class Food {
     @OneToMany(mappedBy = "food")
     private List<FoodComponent> foodComponent;
 
+    // ugyan ugy mukodik, mint a felette levo
+    @ManyToMany(mappedBy = "foods")
+    private List<Order> orders;
+
     public Long getId() {
         return id;
     }
@@ -89,5 +93,13 @@ public class Food {
 
     public void setFoodComponent(List<FoodComponent> foodComponent) {
         this.foodComponent = foodComponent;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
