@@ -3,6 +3,7 @@ package hu.flowacademy.first.time.rest.model;
 import hu.flowacademy.first.time.rest.service.dto.FoodType;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "food")
@@ -24,6 +25,15 @@ public class Food {
     @Column
     @Enumerated(EnumType.STRING)
     private FoodType foodType;
+
+    @OneToOne
+    @JoinColumn(name = "other_food_data_id")
+    private OtherFoodData otherFoodData;
+
+    // a mappedBy erteke meg kell, hogy egyezzen a
+    // @ManyToOne valtozo nevevel
+    @OneToMany(mappedBy = "food")
+    private List<FoodComponent> foodComponent;
 
     public Long getId() {
         return id;
@@ -63,5 +73,21 @@ public class Food {
 
     public void setFoodType(FoodType foodType) {
         this.foodType = foodType;
+    }
+
+    public OtherFoodData getOtherFoodData() {
+        return otherFoodData;
+    }
+
+    public void setOtherFoodData(OtherFoodData otherFoodData) {
+        this.otherFoodData = otherFoodData;
+    }
+
+    public List<FoodComponent> getFoodComponent() {
+        return foodComponent;
+    }
+
+    public void setFoodComponent(List<FoodComponent> foodComponent) {
+        this.foodComponent = foodComponent;
     }
 }
